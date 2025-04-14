@@ -5,13 +5,15 @@ interface TimerProps {
   seconds: string;
   onMinutesChange: (value: string) => void;
   onSecondsChange: (value: string) => void;
+  isRunning: boolean;
 }
 
 export default function Timer({
   minutes,
   seconds,
   onMinutesChange,
-  onSecondsChange
+  onSecondsChange,
+  isRunning
 }: TimerProps) {
   return (
     <div className="timer">
@@ -24,6 +26,7 @@ export default function Timer({
             min="0"
             value={minutes}
             onChange={(e) => onMinutesChange(e.target.value)}
+            disabled={isRunning}
           />
           <label className="input-label">Minutes</label>
         </div>
@@ -37,10 +40,11 @@ export default function Timer({
             max="59"
             value={seconds}
             onChange={(e) => onSecondsChange(e.target.value)}
+            disabled={isRunning}
           />
           <label className="input-label">Seconds</label>
         </div>
       </div>
     </div>
-  )
+  );
 }

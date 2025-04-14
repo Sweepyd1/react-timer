@@ -1,29 +1,21 @@
-import './start.modal.css'
-import PlayIcon from './play.svg'
-import { useState } from 'react'
-import PauseIcon from './pause.svg'
+// Start.tsx
+import './start.modal.css';
+import PlayIcon from './play.svg';
+import PauseIcon from './pause.svg';
 
 interface StartProps {
-    onClick: () => void;
-  }
+  onClick: () => void;
+  isRunning: boolean;
+}
 
-export default function Start({onClick}:StartProps){
-
-    const [isPlaying, setIsPlaying] = useState(false)
-
-    const handleIconClick = () => {
-        setIsPlaying(!isPlaying);
-        onClick();
-        
-    }
-
-    return(
-        <div className="start">
-        <img
-            src={isPlaying ? PauseIcon : PlayIcon}
-            alt="Иконка воспроизведения/паузы"
-            onClick={handleIconClick}
-        />
+export default function Start({ onClick, isRunning }: StartProps) {
+  return (
+    <div className="start"  onClick={onClick}>
+      <img
+        src={isRunning ? PauseIcon : PlayIcon}
+        alt={isRunning ? "Пауза" : "Старт"}
+       
+      />
     </div>
-    )
+  );
 }

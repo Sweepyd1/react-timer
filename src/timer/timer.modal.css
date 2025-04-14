@@ -57,7 +57,6 @@
     text-shadow: 0 0 10px rgba(189, 92, 238, 0.7);
 }
 
-/* Убираем стрелки у числовых инпутов */
 input[type="number"]::-webkit-outer-spin-button,
 input[type="number"]::-webkit-inner-spin-button {
     -webkit-appearance: none;
